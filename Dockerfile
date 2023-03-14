@@ -1,6 +1,6 @@
 FROM centos:latest
 MAINTAINER sapnarsy2612@gmail.com
-RUN yum install -y httpd
+RUN dnf install -y httpd
 RUN yum install -y zip
 RUN yum install -y unzip
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html
