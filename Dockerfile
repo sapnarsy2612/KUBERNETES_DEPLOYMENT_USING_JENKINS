@@ -1,10 +1,9 @@
 FROM centos:latest
 MAINTAINER sapnarsy2612@gmail.com
-RUN echo "name=CentOS-$releasever - AppStream" > /etc/yum.repos.d/appstream.repo \
-    && echo "baseurl=http://mirror.centos.org/centos/$releasever/appstream/\$basearch/" >> /etc/yum.repos.d/appstream.repo \
-    && echo "enabled=1" >> /etc/yum.repos.d/appstream.repo \
-    && echo "gpgcheck=0" >> /etc/yum.repos.d/appstream.repo \
-    && yum install -y httpd
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN yum install -y httpd
 RUN yum install -y zip
 RUN yum install -y unzip
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html
