@@ -1,14 +1,14 @@
 kind: Service                             
 apiVersion: v1
 metadata:
-  name: Sapna
+  name: sapna
   labels:
-    app: Sapna
+    app: sapna
 spec:
   ports:
     - port: 8080                               
       targetPort: 80                    
       nodePort: 31200
   selector:
-    app: Sapna                  
+    app: sapna                  
   type: LoadBalancer
