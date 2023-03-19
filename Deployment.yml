@@ -1,19 +1,19 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-   name: Sapna
+   name: sapna
 spec:
    replicas: 2
    selector:      # tells the controller which pods to watch/belong to
     matchLabels:
-     app: Sapna
+     app: sapna
    template:
       metadata:
         labels:
-          app: Sapna
+          app: sapna
       spec:
        containers:
-        - name: Sapna
+        - name: sapna
           image: sravtar/kubernetes_deployment_pipeline
           imagePullPolicy: Always
           ports:
